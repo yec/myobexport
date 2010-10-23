@@ -16,6 +16,10 @@ MouseClick("left", $winpos[0] + 240, $winpos[1] + 76)
 ; down is tab, down down is csv.
 Send("{DOWN}{DOWN}{ENTER}")
 
+; include header record
+MouseClick("left", $winpos[0] + 249, $winpos[1] + 112)
+Send("{DOWN}{ENTER}")
+
 If $bSales == 1 Then
 ; begin sales report config
 
