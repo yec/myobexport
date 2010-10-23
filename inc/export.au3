@@ -14,7 +14,13 @@ Send("{BS}")
 $winpos = WinGetPos("Export File")
 MouseClick("left", $winpos[0] + 240, $winpos[1] + 76)
 ; down is tab, down down is csv.
-Send("{DOWN}{DOWN}{ENTER}")
+If $cType == $TAB Then
+	Send("{DOWN}{ENTER}")
+	$ext = ".txt"
+ElseIf $cType == $CSV Then
+	Send("{DOWN}{DOWN}{ENTER}")
+	$ext = ".csv"
+EndIf
 
 ; include header record
 MouseClick("left", $winpos[0] + 249, $winpos[1] + 112)
@@ -45,7 +51,7 @@ Send("!m")
 Send("!e")
 WinWaitActive("Save As")
 ; put filename
-ControlSend("[CLASS:#32770]", "", "Edit1", $export_dir & $export_filename,1)
+ControlSend("[CLASS:#32770]", "", "Edit1", $export_dir & $export_filename & $ext,1)
 Send("!s")
 
 ; handle overwrite file prompt

@@ -7,6 +7,10 @@ if _Singleton("myobexport",1) = 0 Then
     Exit
 EndIf
 
+; initialize constants
+Global Const $TAB = 0
+Global Const $CSV = 1
+
 $ini_file = "config.ini"
 
 $myob_fullpath = IniRead ( $ini_file, "myob", "fullpath", "c:\premier19\clearwtr.myo" )
@@ -34,11 +38,11 @@ WinActivate("AccountRight")
 
 #include "inc/export.au3"
 
-Export("{ALTDOWN}f{ALTUP}ecc","customers.csv")
-Export("{ALTDOWN}f{ALTUP}ecs","suppliers.csv")
-Export("{ALTDOWN}f{ALTUP}ei","items.csv")
-Export("{ALTDOWN}f{ALTUP}ess{RIGHT}i","itemsales.csv",1)
-Export("{ALTDOWN}f{ALTUP}ess{RIGHT}s","servicesales.csv",1)
+Export("{ALTDOWN}f{ALTUP}ecc","customers",$TAB)
+Export("{ALTDOWN}f{ALTUP}ecs","suppliers",$TAB)
+Export("{ALTDOWN}f{ALTUP}ei","items",$TAB)
+Export("{ALTDOWN}f{ALTUP}ess{RIGHT}i","itemsales",$TAB,1)
+Export("{ALTDOWN}f{ALTUP}ess{RIGHT}s","servicesales",$TAB,1)
 
 if $keepopen = False Then
 	WinClose("AccountRight Premier")
