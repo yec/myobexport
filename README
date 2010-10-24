@@ -1,1 +1,28 @@
-MYOB Export
+#cs ----------------------------------------------------------------------------
+
+ AutoIt Version: 3.3.6.1
+ Author:         Ye Chuah
+
+ Script Function:
+	MYOB Export README
+
+#ce ----------------------------------------------------------------------------
+
+Install AutoIt Version 3
+
+Run MYOB Export by double clicking myobexport.au3
+
+Modify config.ini for myob configuration.
+Default values work for sample clearwtr.myo file.
+
+If instance of accountright already running myob export will use that.
+
+Currently Exports
+
+customers
+suppliers
+items
+itemsales
+servicesales
+
+kill export with {ESC}

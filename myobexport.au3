@@ -1,5 +1,8 @@
 ; Export MYOB
 
+; set hotkey to exit script at any time
+HotKeySet("{ESC}", "MyExit")
+
 ; allow only one script to run at a time
 #Include <Misc.au3>
 if _Singleton("myobexport",1) = 0 Then
@@ -18,7 +21,7 @@ $myob_username = IniRead ( $ini_file, "myob", "username", "administrator" )
 $myob_password = IniRead ( $ini_file, "myob", "password", "" )
 $myob_executable = IniRead ( $ini_file, "myob", "executable", "c:\premier19\myobp.exe" )
 
-$export_dir = IniRead ( $ini_file, "export", "dir", "c:\myobwexports\" )
+$export_dir = IniRead ( $ini_file, "export", "dir", "c:\myobexports\" )
 
 ; create export directory if not existing yet
 if not fileexists($export_dir) then
@@ -49,3 +52,7 @@ if $keepopen = False Then
 EndIf
 
 Exit
+
+Func MyExit()
+    Exit
+EndFunc
